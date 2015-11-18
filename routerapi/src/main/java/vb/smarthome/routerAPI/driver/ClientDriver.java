@@ -7,10 +7,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vb.smarthome.routerAPI.entity.DHCPClient;
@@ -29,9 +27,8 @@ public class ClientDriver {
 	
 	  
 	public ClientDriver(String routerURL, WebDriver webDriver) {
-//		driver = new HtmlUnitDriver(true);
-//	    baseUrl = "http://tplinklogin.net/";
 		baseUrl = routerURL;
+		this.webDriver = webDriver;
 		
 	    webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
